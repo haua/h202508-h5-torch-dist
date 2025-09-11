@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>火炬</title>
+  <script type="module" crossorigin src="./assets/index-jSBnNGpF.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Dt7kdB2Y.css">
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <div class="musicPlayer">
+    <audio id="bgMusic" src="./bgm.mp3" autoPlay preload="auto" loop></audio>
+    <script>
+      function audioAutoPlay(id) {
+        const audio = document.getElementById(
+          id
+        )
+        const play = function () {
+          audio.play()
+          document.removeEventListener('touchstart', play, false)
+        }
+        audio.play()
+        document.addEventListener('touchstart', play, false)
+      }
+
+      document.addEventListener(
+        'WeixinJSBridgeReady',
+        function () {
+          audioAutoPlay('bgMusic')
+        },
+        false
+      )
+
+      document.body.onload = function () {
+        audioAutoPlay('bgMusic')
+      }
+    </script>
+  </div>
+</body>
+
+</html>
